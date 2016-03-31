@@ -31,15 +31,8 @@ public class MainActivity extends AppCompatActivity {
         orderMessage += "\n" + quantity;
         orderMessage += "\n" + totalPrice + " dollars";
         orderMessage += "\nThank You!";
-        /*+ " dollars for "  +
-                " cups of coffee.\nPay up.";*/
         displayTitleOfTotalOrder(titleOrderMessage);
         displayTotalOrder(orderMessage);
-
-        //int numberOfCoffees = 2;
-        // display(numberOfCoffees);
-        //displayPrice(numberOfCoffees * 5);
-        //displayPrice(quantity * 5);
     }
 
     /**
@@ -80,11 +73,10 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the plus button is clicked.
      */
     public void increment(View view) {
-        if (quantity >= 0) {quantity = quantity + 1;
+        quantity = quantity + 1;
         displayQuantity(quantity);
         totalPrice = quantity * 5;
         displayPrice(totalPrice);
-        }else {quantity = 0;}
     }
 
     /**
