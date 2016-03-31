@@ -9,6 +9,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
+    android:background="#D7CCC8"
     tools:context=".QuizActivity">
 
 
@@ -33,9 +34,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:gravity="right"
+            android:paddingTop="8dp"
             android:text="0"
             android:textColor="@android:color/black"
-            android:textSize="22sp" />
+            android:textSize="26sp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -47,7 +49,7 @@
                 android:id="@+id/increment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
+                android:layout_gravity="center"
                 android:layout_marginBottom="10dp"
                 android:onClick="increment"
                 android:text="Quantity"
@@ -91,6 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
+            android:paddingTop="4dp"
                 android:text=": Price"
                 android:layout_weight="3"
                 android:textAllCaps="true"
