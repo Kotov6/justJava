@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
-
 import java.text.NumberFormat;
 
 /**
@@ -25,13 +24,18 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        String priceMessage = "name: Bond, James Bond";
-        priceMessage += "\nquantity: " + quantity;
-        priceMessage += "\ntotal price: " + totalPrice + " dollars";
-        priceMessage += "\nThank You!";
+        String titleOrderMessage = "name:";
+        titleOrderMessage += "\nquantity:";
+        titleOrderMessage += "\ntotal price:";
+        String orderMessage = "Bond, James Bond";
+        orderMessage += "\n" + quantity;
+        orderMessage += "\n" + totalPrice + " dollars";
+        orderMessage += "\nThank You!";
         /*+ " dollars for "  +
                 " cups of coffee.\nPay up.";*/
-        displayTotalOrder(priceMessage);
+        displayTitleOfTotalOrder(titleOrderMessage);
+        displayTotalOrder(orderMessage);
+
         //int numberOfCoffees = 2;
         // display(numberOfCoffees);
         //displayPrice(numberOfCoffees * 5);
@@ -47,7 +51,16 @@ public class MainActivity extends AppCompatActivity {
         quantityTextView.setText("" + number);
     }
     /**
-     * This method displays the given quantity value on the screen.
+     * This method displays the title of the total order on the screen.
+     */
+    private void displayTitleOfTotalOrder(String message) {
+        TextView titleOfTotalOrderTextView = (TextView) findViewById(
+                R.id.title_total_order_text_view);
+        titleOfTotalOrderTextView.setText(message);
+    }
+
+    /**
+     * This method displays the title of the total order on the screen.
      */
     private void displayTotalOrder(String message) {
         TextView totalOrderTextView = (TextView) findViewById(
@@ -85,12 +98,4 @@ public class MainActivity extends AppCompatActivity {
             displayPrice(totalPrice);
         }else {quantity = 0;}
     }
-
-    /**
-     * This method displays the given text on the screen.
-     */
-    /*private void displayMessage(String message) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(message);
-    }*/
 }
