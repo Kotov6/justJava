@@ -4,7 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+
 import java.text.NumberFormat;
+
+
 
 /**
  * This app displays an order form to order coffee.
@@ -70,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method is called when the plus button is clicked.
+     * This method is called when the quantity button is clicked.
      */
     public void increment(View view) {
         quantity = quantity + 1;
@@ -80,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method is called when the minus button is clicked.
+     * This method is called when the decrease button is clicked.
      */
     public void decrement(View view) {
         if (quantity > 0) {
@@ -88,6 +91,6 @@ public class MainActivity extends AppCompatActivity {
             displayQuantity(quantity);
             totalPrice = quantity * 5;
             displayPrice(totalPrice);
-        }else {quantity = 0;}
+        }  else {quantity = 0;}
     }
 }

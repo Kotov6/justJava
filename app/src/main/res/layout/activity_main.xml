@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="22dp"
-        android:text="Please, make your order here :"
+        android:text="@string/app_start"
         android:textSize="18sp" />
 
     <LinearLayout
@@ -34,8 +34,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:gravity="right"
-            android:paddingTop="8dp"
-            android:text="0"
+            android:paddingTop="12dp"
+            android:text="@string/zero_quantity"
             android:textColor="@android:color/black"
             android:textSize="26sp" />
 
@@ -52,7 +52,7 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="10dp"
                 android:onClick="increment"
-                android:text="Quantity"
+                android:text="@string/button_plus"
                 android:textColor="@android:color/holo_green_dark"
                 android:textSize="18sp" />
 
@@ -64,7 +64,7 @@
                 android:gravity="center"
                 android:onClick="decrement"
                 android:padding="12dp"
-                android:text="decrease"
+                android:text="@string/button_minus"
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="14sp" />
 
@@ -85,7 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:gravity="center"
-            android:text="$0"
+            android:text="@string/zero_price"
             android:textColor="@android:color/black"
             android:textSize="22sp" />
 
@@ -94,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
             android:paddingTop="4dp"
-                android:text=": Price"
+                android:text="@string/text_price"
                 android:layout_weight="3"
                 android:textAllCaps="true"
                 android:textSize="18sp" />
@@ -107,7 +107,7 @@
         android:layout_gravity="center"
         android:layout_marginBottom="12dp"
         android:onClick="submitOrder"
-        android:text="Order"
+        android:text="@string/button_Order"
         android:textSize="22sp" />
 
     <LinearLayout
