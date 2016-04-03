@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the quantity button is clicked.
      */
     public void increment(View view) {
-        quantity = quantity + 1;
+        quantity += 1;
         displayQuantity(quantity);
         totalPrice = quantity * 5;
         displayPrice(totalPrice);
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void decrement(View view) {
         if (quantity > 0) {
-            quantity = quantity - 1;
+            quantity -= 1;
             displayQuantity(quantity);
             totalPrice = quantity * 5;
             displayPrice(totalPrice);
