@@ -2,7 +2,9 @@ package com.example.android.justjava;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -37,6 +39,43 @@ public class MainActivity extends AppCompatActivity {
         displayTitleOfTotalOrder(titleOrderMessage);
         displayTotalOrder(orderMessage);
     }
+
+    public void onCheckboxClicked(View view) {
+
+        CheckBox addCream =(CheckBox)findViewById(R.id.cream);
+        CheckBox addChoco =(CheckBox)findViewById(R.id.choco);
+
+        // Is the view now checked?
+        boolean cream = addCream.isChecked();
+        boolean choco = addChoco.isChecked();
+
+        // Check which checkbox was clicked
+        switch(view.getId()) {
+            case R.id.cream:
+                if (true){
+
+                }
+                // Put some meat on the sandwich
+                else{
+
+                }
+                // Remove the meat
+                break;
+            case R.id.choco:
+                if (true){
+
+                }
+                // Cheese me
+                else{
+
+                }
+                // I'm lactose intolerant
+                break;
+        }
+        Log.v("MainActivity", "cream is " + cream);
+        Log.v("MainActivity", "choco is " + choco);
+    }
+
 
     /**
      * This method displays the given quantity value on the screen.

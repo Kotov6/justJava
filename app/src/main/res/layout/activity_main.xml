@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D7CCC8"
@@ -9,65 +8,48 @@
     android:paddingBottom="16dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:paddingTop="16dp"
-    tools:context=".QuizActivity">
+    android:paddingTop="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Toppings"
-            android:gravity="top"
-            android:textSize="16sp"
             android:layout_marginTop="5dp"
-            android:textAllCaps="true"/>
+            android:gravity="top"
+            android:text="@string/text_toppings"
+            android:textAllCaps="true"
+            android:textSize="18sp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginLeft="20dp">
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <CheckBox
+                android:id="@+id/cream"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginLeft="12dp"
+                android:paddingLeft="16dp"
+                android:text="@string/cream"
+                android:onClick="onCheckboxClicked"
+                android:textSize="16sp" />
 
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Whipped cream"
-                    android:textSize="16sp"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <CheckBox
+                android:id="@+id/choco"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Chocolate"
-                    android:textSize="16sp"
-                    />
-
-            </LinearLayout>
+                android:layout_marginLeft="12dp"
+                android:paddingLeft="16dp"
+                android:text="@string/chocolate"
+                android:onClick="onCheckboxClicked"
+                android:textSize="16sp" />
 
         </LinearLayout>
 
