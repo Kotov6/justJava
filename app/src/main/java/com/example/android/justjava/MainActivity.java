@@ -2,10 +2,13 @@ package com.example.android.justjava;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
+
 import java.text.NumberFormat;
 
 /**
@@ -17,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     int totalPrice = 0;
     boolean showCream;
     boolean showChoco;
+    String customerName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,17 +32,20 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
+        customerName(view);
+
         String titleOrderMessage = "name:";
         titleOrderMessage += "\nquantity:";
         titleOrderMessage += "\nhasWCream";
         titleOrderMessage += "\nhasChocolate";
         titleOrderMessage += "\ntotal price:";
-        String orderMessage = "James Bond";
+        String orderMessage = customerName;
         orderMessage += "\n" + quantity;
         orderMessage += "\n" + showCream;
         orderMessage += "\n" + showChoco;
         orderMessage += "\n" + totalPrice + " dollars";
         orderMessage += "\nThank You!";
+
         displayTitleOfTotalOrder(titleOrderMessage);
         displayTotalOrder(orderMessage);
     }
@@ -58,6 +65,12 @@ public class MainActivity extends AppCompatActivity {
         Log.v("MainActivity", "choco is " + choco);
      }
 
+    public void customerName (View view){
+        EditText nameOfCustomer = (EditText)findViewById(R.id.customer_name);
+        Editable name = nameOfCustomer.getText();
+        this.customerName = name.toString();
+        Log.v("MainActivity", "name is " + customerName);
+    }
     /**
      * This method displays the given quantity value on the screen.
      */
