@@ -6,10 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
-
 import java.text.NumberFormat;
-
-
 
 /**
  * This app displays an order form to order coffee.
@@ -18,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
 
     int quantity = 0;
     int totalPrice = 0;
+    boolean showCream;
+    boolean showChoco;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +30,13 @@ public class MainActivity extends AppCompatActivity {
     public void submitOrder(View view) {
         String titleOrderMessage = "name:";
         titleOrderMessage += "\nquantity:";
+        titleOrderMessage += "\nhasWCream";
+        titleOrderMessage += "\nhasChocolate";
         titleOrderMessage += "\ntotal price:";
-        String orderMessage = "Bond, James Bond";
+        String orderMessage = "James Bond";
         orderMessage += "\n" + quantity;
+        orderMessage += "\n" + showCream;
+        orderMessage += "\n" + showChoco;
         orderMessage += "\n" + totalPrice + " dollars";
         orderMessage += "\nThank You!";
         displayTitleOfTotalOrder(titleOrderMessage);
@@ -48,34 +51,12 @@ public class MainActivity extends AppCompatActivity {
         // Is the view now checked?
         boolean cream = addCream.isChecked();
         boolean choco = addChoco.isChecked();
+        showCream = cream;
+        showChoco = choco;
 
-        // Check which checkbox was clicked
-        switch(view.getId()) {
-            case R.id.cream:
-                if (true){
-
-                }
-                // Put some meat on the sandwich
-                else{
-
-                }
-                // Remove the meat
-                break;
-            case R.id.choco:
-                if (true){
-
-                }
-                // Cheese me
-                else{
-
-                }
-                // I'm lactose intolerant
-                break;
-        }
         Log.v("MainActivity", "cream is " + cream);
         Log.v("MainActivity", "choco is " + choco);
-    }
-
+     }
 
     /**
      * This method displays the given quantity value on the screen.
