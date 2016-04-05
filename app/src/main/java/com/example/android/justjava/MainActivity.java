@@ -1,8 +1,8 @@
 package com.example.android.justjava;
 
+
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import java.text.NumberFormat;
 
+
 /**
  * This app displays an order form to order coffee.
  */
@@ -18,6 +19,10 @@ public class MainActivity extends AppCompatActivity {
 
     int quantity = 0;
     int totalPrice = 0;
+    int priceCream = 0;
+    int priceChoco = 0;
+    int priceOneCap;
+
     boolean showCream;
     boolean showChoco;
     String customerName;
@@ -52,25 +57,48 @@ public class MainActivity extends AppCompatActivity {
 
     public void onCheckboxClicked(View view) {
 
-        CheckBox addCream =(CheckBox)findViewById(R.id.cream);
-        CheckBox addChoco =(CheckBox)findViewById(R.id.choco);
+        CheckBox addCream = (CheckBox) findViewById(R.id.cream);
+        CheckBox addChoco = (CheckBox) findViewById(R.id.choco);
 
         // Is the view now checked?
         boolean cream = addCream.isChecked();
         boolean choco = addChoco.isChecked();
+        if (cream == true) {
+            priceCream = 1;
+        } else {
+            priceCream = 0;
+        }
+        if (choco == true) {
+            priceChoco = 2;
+        } else {
+            priceChoco = 0;
+        }
+
+        this.priceOneCap = 5 + priceCream + priceChoco;
         showCream = cream;
         showChoco = choco;
 
-        Log.v("MainActivity", "cream is " + cream);
-        Log.v("MainActivity", "choco is " + choco);
-     }
-
-    public void customerName (View view){
-        EditText nameOfCustomer = (EditText)findViewById(R.id.customer_name);
-        Editable name = nameOfCustomer.getText();
-        this.customerName = name.toString();
-        Log.v("MainActivity", "name is " + customerName);
+        //Log.i("MainActivity", "cream is " + cream);
+        //Log.i("MainActivity", "choco is " + choco);
+        Log.i("MainActivity", "priceOneCap is " + priceOneCap);
     }
+
+    public void customerName(View view) {
+        EditText nameOfCustomer = (EditText) findViewById(R.id.customer_name);
+       /* Editable name = nameOfCustomer.getText();
+        customerName = name.toString(); */
+
+        /*Основной метод класса EditText — getText(), который возвращает текст,
+         * содержащийся в текстовом поле. Возвращаемое значение имеет
+         * специальный тип Editable, а не String.*/
+
+        //приводим к типу String
+        String name = nameOfCustomer.getText().toString();
+        customerName = name;
+
+        Log.i("MainActivity", "name is " + customerName);
+    }
+
     /**
      * This method displays the given quantity value on the screen.
      */
@@ -79,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                 R.id.quantity_text_view);
         quantityTextView.setText("" + number);
     }
+
     /**
      * This method displays the title of the total order on the screen.
      */
@@ -89,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method displays the title of the total order on the screen.
+     * This method displays the total order on the screen.
      */
     private void displayTotalOrder(String message) {
         TextView totalOrderTextView = (TextView) findViewById(
@@ -108,10 +137,11 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method is called when the quantity button is clicked.
      */
+
     public void increment(View view) {
         quantity += 1;
         displayQuantity(quantity);
-        totalPrice = quantity * 5;
+        totalPrice = quantity * priceOneCap;
         displayPrice(totalPrice);
     }
 
@@ -122,8 +152,10 @@ public class MainActivity extends AppCompatActivity {
         if (quantity > 0) {
             quantity -= 1;
             displayQuantity(quantity);
-            totalPrice = quantity * 5;
+            totalPrice = quantity * priceOneCap;
             displayPrice(totalPrice);
-        }  else {quantity = 0;}
+        } else {
+            quantity = 0;
+        }
     }
 }
