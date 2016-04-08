@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Кава Негайно</string>
+    <string name="app_start">Будь ласка, зробіть Ваше замовлення тут :</string>
+    <string name="zero_quantity">0</string>
+    <string name="button_plus">Кількість</string>
+    <string name="button_minus">Зменшити</string>
+    <string name="zero_price">$0</string>
+    <string name="text_price">Загальна ціна</string>
+    <string name="button_Order">Замовлення </string>
+    <string name="text_toppings">Топінги</string>
+    <string name="cream">Збиті вершки</string>
+    <string name="chocolate">Шоколад</string>
+    <string name="name">Прізвище</string>
+    <string name="warning">Не можна замовити менше 1 кави</string>
+</resources>

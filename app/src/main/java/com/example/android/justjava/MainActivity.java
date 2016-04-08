@@ -1,6 +1,5 @@
 package com.example.android.justjava;
 
-
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -8,9 +7,9 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.NumberFormat;
-
 
 /**
  * This app displays an order form to order coffee.
@@ -19,10 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     int quantity = 0;
     int totalPrice = 0;
-    int priceCream = 0;
-    int priceChoco = 0;
     int priceOneCap;
-
     boolean showCream;
     boolean showChoco;
     String customerName;
@@ -53,25 +49,37 @@ public class MainActivity extends AppCompatActivity {
 
         displayTitleOfTotalOrder(titleOrderMessage);
         displayTotalOrder(orderMessage);
+       // composeEmail(titleOrderMessage);
     }
+
+    //public void composeEmail(String[] addresses, String subject, Uri attachment)
+//    public void composeEmail(String subject) {
+//        Intent intent = new Intent(Intent.ACTION_SENDTO);
+//        intent.setType("*/*");
+//        intent.putExtra(Intent.EXTRA_EMAIL, addresses);
+//        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+//        intent.putExtra(Intent.EXTRA_STREAM, attachment);
+//        if (intent.resolveActivity(getPackageManager()) != null) {
+//            startActivity(intent);
+//        }
+//    }
 
     public void onCheckboxClicked(View view) {
 
         CheckBox addCream = (CheckBox) findViewById(R.id.cream);
         CheckBox addChoco = (CheckBox) findViewById(R.id.choco);
 
+        int priceCream = 0;
+        int priceChoco = 0;
+
         // Is the view now checked?
         boolean cream = addCream.isChecked();
         boolean choco = addChoco.isChecked();
         if (cream == true) {
             priceCream = 1;
-        } else {
-            priceCream = 0;
         }
         if (choco == true) {
             priceChoco = 2;
-        } else {
-            priceChoco = 0;
         }
 
         this.priceOneCap = 5 + priceCream + priceChoco;
@@ -137,25 +145,32 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method is called when the quantity button is clicked.
      */
-
     public void increment(View view) {
-        quantity += 1;
-        displayQuantity(quantity);
-        totalPrice = quantity * priceOneCap;
-        displayPrice(totalPrice);
+        if (quantity < 100) {
+            quantity += 1;
+            displayQuantity(quantity);
+            totalPrice = quantity * priceOneCap;
+            displayPrice(totalPrice);
+        }else{
+            // Show an error message as a toast
+            Toast.makeText(this, "You cannot have more than 100 coffees",
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**
      * This method is called when the decrease button is clicked.
      */
     public void decrement(View view) {
-        if (quantity > 0) {
+        if (quantity > 1) {
             quantity -= 1;
             displayQuantity(quantity);
             totalPrice = quantity * priceOneCap;
             displayPrice(totalPrice);
-        } else {
-            quantity = 0;
+        }else{
+            // Show an error message as a toast
+            Toast.makeText(this, "You cannot have less than 1 coffee",
+                    Toast.LENGTH_SHORT).show();
         }
     }
 }
